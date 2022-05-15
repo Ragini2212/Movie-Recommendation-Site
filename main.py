@@ -40,7 +40,9 @@ app = Flask(__name__)
 def home():
     suggestions = get_suggestions()
     return render_template('home.html',suggestions=suggestions)
-
+@app.route("/wishlist")
+def wishlist():
+    return render_template('wishlist.html')
 
 @app.route("/recommend",methods=["POST"])
 def recommend():
