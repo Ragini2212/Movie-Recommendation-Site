@@ -42,7 +42,19 @@ def home():
     return render_template('home.html',suggestions=suggestions)
 @app.route("/wishlist")
 def wishlist():
+    
     return render_template('wishlist.html')
+@app.route("/login")
+def login():
+    return render_template('login.html')
+@app.route("/register")
+def register():
+    return render_template('register.html')
+@app.route("/login_validation",methods=["POST"])
+def loginval():
+    username=request.form.get('username')
+    password=request.form.get('pass')
+    return "Username is {} and password is {}".format(username,password)
 
 @app.route("/recommend",methods=["POST"])
 def recommend():
