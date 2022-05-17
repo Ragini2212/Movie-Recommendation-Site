@@ -7,8 +7,10 @@ import json
 import bs4 as bs
 import urllib.request
 import pickle
+import mysql.connector
 import requests
 from datetime import date, datetime
+
 
 # load the nlp model and tfidf vectorizer from disk
 filename = 'nlp_model.pkl'
@@ -44,17 +46,33 @@ def home():
 def wishlist():
     
     return render_template('wishlist.html')
-@app.route("/login")
+@app.route("/login",methods=['POST','GET'])
 def login():
-    return render_template('login.html')
+    mydb=mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="",
+        database="login"
+    )
+    mycursor=mydb.cursor()
+    if request.method=='POST':
+        signup=request.form
+        username=signup['username']
+        password=signup['password']
+        mycursor.execute("select * from login where username='"+username+"'and password='"+password+"'")
+        r=mycursor.fetchall()
+        count=mycursor.rowcount()
+        if count ==1:
+            return render_template('\home')
+        else:
+            return render_template('\login')
+    mydb.commit()
+    mycursor.close()
+
+    
 @app.route("/register")
 def register():
     return render_template('register.html')
-@app.route("/login_validation",methods=["POST"])
-def loginval():
-    username=request.form.get('username')
-    password=request.form.get('pass')
-    return "Username is {} and password is {}".format(username,password)
 
 @app.route("/recommend",methods=["POST"])
 def recommend():
