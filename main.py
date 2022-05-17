@@ -1,6 +1,8 @@
+from urllib.parse import uses_relative
 import numpy as np
 import pandas as pd
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask_mysqldb import MySQL
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import json
@@ -8,7 +10,11 @@ import bs4 as bs
 import urllib.request
 import pickle
 import mysql.connector
+import re
+import MySQLdb.cursors
 import requests
+import MySQLdb
+from functools import wraps
 from datetime import date, datetime
 
 
@@ -36,44 +42,72 @@ def get_suggestions():
     return list(data['movie_title'].str.capitalize())
 
 app = Flask(__name__)
+app.secret_key = 'secret'
+app.config['MYSQL_HOST']="localhost"
+app.config['MYSQL_USER']="root"
+app.config['MYSQL_PASSWORD']=""
+app.config['MYSQL_DB']="login"
+app.config['MYSQL_CURSORCLASS']='DictCursor'
+mysql = MySQL(app)
 
-@app.route("/")
-@app.route("/home")
-def home():
-    suggestions = get_suggestions()
-    return render_template('home.html',suggestions=suggestions)
 @app.route("/wishlist")
 def wishlist():
     
     return render_template('wishlist.html')
+@app.route("/")
 @app.route("/login",methods=['POST','GET'])
 def login():
-    mydb=mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="login"
-    )
-    mycursor=mydb.cursor()
+    status=True
     if request.method=='POST':
-        signup=request.form
-        username=signup['username']
-        password=signup['password']
-        mycursor.execute("select * from login where username='"+username+"'and password='"+password+"'")
-        r=mycursor.fetchall()
-        count=mycursor.rowcount()
-        if count ==1:
-            return render_template('\home')
+        username=request.form["username"]
+        pwd=request.form["password"]
+        cur=mysql.connection.cursor()
+        cur.execute("select * from accounts where username=%s and password=%s",(username,pwd))
+        data=cur.fetchone()
+        if data:
+            session['logged_in']=True
+            session['username']=data["username"]
+            flash('Login Successfully','success')
+            return redirect('home')
         else:
-            return render_template('\login')
-    mydb.commit()
-    mycursor.close()
+            flash('Invalid Login. Try Again','danger')
+    return render_template("login.html")
+def is_logged_in(f):
+	@wraps(f)
+	def wrap(*args,**kwargs):
+		if 'logged_in' in session:
+			return f(*args,**kwargs)
+		else:
+			flash('Unauthorized, Please Login','danger')
+			return redirect(url_for('login'))
+	return wrap
+@app.route("/home")
+@is_logged_in
+def home():
+    suggestions = get_suggestions()
+    return render_template('home.html',suggestions=suggestions)
 
-    
-@app.route("/register")
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash('You are logged out','success')
+    return redirect(url_for('login'))
+ 
+@app.route('/register', methods =['GET', 'POST'])
 def register():
-    return render_template('register.html')
-
+    status=False
+    if request.method=='POST':
+        username=request.form["username"]
+        email=request.form["email"]
+        pwd=request.form["password"]
+        name=request.form["name"]
+        cur=mysql.connection.cursor()
+        cur.execute("insert into accounts(username,name, password,email) values(%s,%s,%s,%s)",(username,name,pwd,email))
+        mysql.connection.commit()
+        cur.close()
+        flash('Registration Successfully. Login Here...','success')
+        return redirect('login')
+    return render_template("register.html",status=status)
 @app.route("/recommend",methods=["POST"])
 def recommend():
     # getting data from AJAX request
