@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>About - What2Watch</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <style>
+    
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+}
+
+a {
+  text-decoration: none;
+  color: #d9232d;
+}
+
+a:hover {
+  color: #e24d55;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  background: white;
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 20px 0;
+}
+#header.header-scrolled {
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  padding: 12px 0;
+}
+#header.header-inner-pages {
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+#header .logo {
+  font-size: 28px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#header .logo a {
+  color: #556270;
+}
+#header .logo img {
+  max-height: 40px;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-bg, .services .icon-box {
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  padding-bottom: 40px;
+}
+.section-title h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 5px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  font-family: "Poppins", sans-serif;
+}
+.section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #e6636a;
+  margin: 4px 10px;
+}
+.section-title p {
+  margin: 0;
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #556270;
+}
+
+/*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+.breadcrumbs {
+  padding: 18px 0;
+  background: #f8f9fa;
+  min-height: 40px;
+  
+}
+.breadcrumbs h2 {
+  font-size: 32px;
+  font-weight: 300;
+  margin: 0;
+}
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+.breadcrumbs ol li + li {
+  padding-left: 10px;
+}
+.breadcrumbs ol li + li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #6b7b8d;
+  content: "/";
+}
+@media (max-width: 992px) {
+  .breadcrumbs {
+    margin-top: 58px;
+  }
+  .breadcrumbs .d-flex {
+    display: block !important;
+  }
+  .breadcrumbs h2 {
+    margin-bottom: 10px;
+  }
+  .breadcrumbs ol {
+    display: block;
+  }
+  .breadcrumbs ol li {
+    display: inline-block;
+  }
+}
+/*___________________________
+# Background
+_____________________________*/
+
+.take{
+
+background-image:;
+}
+
+
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about .content h2 {
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 60px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.about .content h3 {
+  font-weight: 500;
+  line-height: 32px;
+  font-size: 24px;
+}
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+.about .content ul li {
+  padding: 10px 0 0 28px;
+  position: relative;
+}
+.about .content ul i {
+  left: 0;
+  top: 7px;
+  position: absolute;
+  font-size: 20px;
+  color: #d9232d;
+}
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/*--------------------------------------------------------------
+# Our Team
+--------------------------------------------------------------*/
+.team .member {
+  position: relative;
+  box-shadow: 0px 2px 15px rgba(85, 98, 112, 0.08);
+  padding: 30px;
+  border-radius: 4px;
+  background: white;
+}
+.team .member .pic {
+  overflow: hidden;
+  width: 140px;
+  border-radius: 4px;
+}
+.team .member .pic img {
+  transition: ease-in-out 0.3s;
+}
+.team .member:hover img {
+  transform: scale(1.1);
+}
+.team .member .member-info {
+  padding-left: 30px;
+}
+.team .member h4 {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: #556270;
+}
+.team .member span {
+  display: block;
+  font-size: 15px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 500;
+}
+.team .member span::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: #dee2e6;
+  bottom: 0;
+  left: 0;
+}
+.team .member p {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+}
+.team .member .social {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.team .member .social a {
+  transition: ease-in-out 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  background: #8795a4;
+}
+.team .member .social a i {
+  color: #fff;
+  font-size: 16px;
+  margin: 0 2px;
+}
+.team .member .social a:hover {
+  background: #d9232d;
+}
+.team .member .social a + a {
+  margin-left: 8px;
+}
+
+  </style>
+  
+
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link href="vendor/remixicon/remixicon.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+
+  <!-- Template Main CSS File -->
+  <link href="css/style.css" rel="stylesheet">
+
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <a class="navbar-brand" href="#">Hello {{session.username}}</a>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="\home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="\wishlist">Wishlist</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="\about">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="\contact">Contact us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="\logout">Logout</a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>About</h2>
+          <ol>
+            <li><a href="home.html">Home</a></li>
+            <li>About</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <h2>Movie Recommendation Site</h2>
+            <h3>"A film is never really good unless the camera is an eye in the head of a poet"</h3>
+           <h4>~ ORSON WELLES</h4>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              Movie recommendation systems help viewers by
+              suggesting movies of their interest on their feed without searching for some specific movie
+              among millions of movies. Our aim is to ease up user's work by suggesting movies based on
+              the user's interests. For this we will be using content-based filtering. It will suggest movies on
+              the basis of content that is viewed by the user.
+            </p>
+            <ul>
+              <li><i class="fa-solid fa-check-double"></i> Best Recommended Movies </li>
+              <li><i class="fa-solid fa-check-double"></i> Save & watch later </li>
+              <li><i class="fa-solid fa-check-double"></i> User reviews for your own judgment </li>
+            </ul>
+            <p class="fst-italic">
+              <b>Hope You Liked Our Website, Thank You!</b>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Team</h2>
+          <p>Our Hardowrking Team</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="https://media-exp1.licdn.com/dms/image/D5603AQFUUZqF7oSzZg/profile-displayphoto-shrink_400_400/0/1631508060907?e=1658361600&v=beta&t=gLgfkEeDlQnaml9tU5QIQPY7ANtWhQ0kN87rgizBqOI" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Bhavya Sharma</h4>
+                <span>Full Stack Developer</span>
+                <p>Leader, Data management, Backend  </p>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/bhavya-sharma-5036b11b9" target="_blank"> <i class="fa fa-linkedin-square" style="font-size:24px"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="https://media-exp1.licdn.com/dms/image/C4D03AQEXEQZRYDeKUg/profile-displayphoto-shrink_800_800/0/1642763206837?e=1658361600&v=beta&t=JCArLceDCoIrLh_ntA5ZvJH0Fa6gON1CKfhm7flDzWw" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Ragini Pandey</h4>
+                <span>Designing & Styling expert</span>
+                <p>Login and Registration page, Sentiment algorithm</p>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/ragini-pandey-9b9a761bb" target="_blank"> <i class="fa fa-linkedin-square" style="font-size:24px"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQGg8SNBkYSc0A/profile-displayphoto-shrink_800_800/0/1615818170570?e=1658361600&v=beta&t=X47eEzUbBDlp10rwd2IoGz528_IO_3Nyb9ezb2kmZsA" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Yashaswee Narayan</h4>
+                <span>Front-End Developer</span>
+                <p>Wishlisht page, About Us page, TMDB API </p>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/yashaswee-narayan-7549581bb/" target="_blank"> <i class="fa fa-linkedin-square" style="font-size:24px"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="https://media-exp1.licdn.com/dms/image/C4D03AQH5-dXqIcffYw/profile-displayphoto-shrink_400_400/0/1644285969851?e=1658361600&v=beta&t=Z7elzhGSA2wbsspckPQ7HbFxnWXtzUfzMvUGMvac6qI" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Vibhu Sharma</h4>
+                <span> Specialities in A.I.</span>
+                <p>Home page and Details page, Wikipedia API </p>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/vibhusharmahere/" target="_blank"> <i class="fa fa-linkedin-square" style="font-size:24px"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+
+</body>
+
+</html>

@@ -22,8 +22,57 @@
 </head>
 
 <body id="content">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+    
+		<div class="collapse navbar-collapse" id="navbarNav">
+		  <ul class="navbar-nav">
+			<a class="navbar-brand" href="#">Hello {{session.username}}</a>
+	
+			<li class="nav-item active">
+			  <a class="nav-link" href="\home">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="\wishlist">Wishlist</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="\about">About us</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="\contact">Contact us</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="\logout">Logout</a>
+			</li>
+			
+		  </ul>
+		</div>
+	  </nav>
  <center> <h1>Wishlist</h1></center>
+ <div class="movie-content">
 
+	
+	<table class="tbl-cart" cellpadding="10" cellspacing="1">
+	<tbody>
+		<tr>
+			<th style="text-align:left;">Name</th>
+		</tr>
+		{% for item in data %}
+			<tr>
+				<td><img src="{{item.poster}}" class="cart-item-image" /></td>
+				<td>{{item.title}}</td>
+				<td style="text-align:center;">
+					<button class="btn btn-primary" onclick="deletemovie({{item.title}})">Delete</button>
+				</td>
+			</tr>
+		{% endfor %}
+		
+	</tbody>
+	</table>
+
+
+	  </div>
+	
+  </div>
    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>

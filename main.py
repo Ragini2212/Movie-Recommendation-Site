@@ -54,6 +54,14 @@ mysql = MySQL(app)
 def wishlist():
     
     return render_template('wishlist.html')
+@app.route("/about")
+def about():
+    
+    return render_template('about.html')
+@app.route("/contact")
+def contact():
+    
+    return render_template('contact.html')
 @app.route("/")
 @app.route("/login",methods=['POST','GET'])
 def login():
@@ -198,6 +206,23 @@ def recommend():
     # passing all the data to the html file
     return render_template('recommend.html',title=title,poster=poster,overview=overview,vote_average=vote_average,
         vote_count=vote_count,release_date=release_date,movie_rel_date=movie_rel_date,curr_date=curr_date,runtime=runtime,status=status,genres=genres,movie_cards=movie_cards,reviews=movie_reviews,casts=casts,cast_details=cast_details)
+def add(title,poster):
+    cur=mysql.connection.cursor()
+    cur.execute('insert into wishlist values (NULL,%s,%s)',(title, poster))
+    mysql.connection.commit()
+    cur.execute("select * from wishlist")
+    data=cur.fetchall()
+    cur.close()
+    return render_template("wishlist.html",data=data)
+
+
+def deletemovie(title):
+    cur=mysql.connection.cursor()
+    cur.execute("DELETE FROM wishlist title=%s;",(title))
+    data=cur.fetchall()
+    mysql.connection.commit()
+    cur.close()
+
 
 if __name__ == '__main__':
     app.run(debug=True)
